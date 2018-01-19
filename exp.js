@@ -63,3 +63,26 @@ async function run_cmd_async_wrapper(cmd, filter = "")
 	}
 	return res
 }
+
+
+//readfile wrapper for async/await
+function read_file_raw(file)
+{
+    return new Promise(function (resolve, reject) {
+  		fs.readFile(file, "utf8", function(err, data) {
+			if(err)
+				reject(err)
+			else
+				resolve(data)
+		})
+    })
+}
+async function read_file(file)
+{
+	try{
+		var res = await read_file_raw(file)
+	}catch(err){
+		error_handler_async(err)
+	}
+	return res
+}
