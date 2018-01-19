@@ -13,6 +13,8 @@ var bar1 = 'foobar',
 // "The lazy dog jumped over the foobar"
 
 
+
+// a exec wrapper with async/await
 function run_cmd_async(cmd, filter = "") {
     return new Promise(function (resolve, reject) {
         exec(cmd, function(err,stdout,stderr){
