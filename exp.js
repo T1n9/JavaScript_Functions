@@ -15,6 +15,9 @@ var bar1 = 'foobar',
 
 
 // a exec wrapper with async/await
+// the filter select some errors, which will be recognized as 'resolve'
+// otherwise other cases can be selected as good or bad
+
 function run_cmd_raw(cmd, filter = "") {
     return new Promise(function (resolve, reject) {
         exec(cmd, function(err,stdout,stderr){
