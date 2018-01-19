@@ -15,7 +15,7 @@ var bar1 = 'foobar',
 
 
 // a exec wrapper with async/await
-function run_cmd_async(cmd, filter = "") {
+function run_cmd_raw(cmd, filter = "") {
     return new Promise(function (resolve, reject) {
         exec(cmd, function(err,stdout,stderr){
             if(err)
@@ -54,10 +54,10 @@ function run_cmd_async(cmd, filter = "") {
     })
 }
 
-async function run_cmd_async_wrapper(cmd, filter = "")
+async function run_cmd(cmd, filter = "")
 {
 	try{
-		var res = await run_cmd_async(cmd, filter)
+		var res = await run_cmd_raw(cmd, filter)
 	}catch(err){
 		error_handler_async(err)
 	}
